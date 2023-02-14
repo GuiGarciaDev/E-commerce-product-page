@@ -8,9 +8,8 @@
 
     .mainImage {
         display: flex;
-        
 
-        .OBJETO {
+        img {
             width: 320px;
             height: 320px;
             background-color: var(--orange);
@@ -22,11 +21,25 @@
         display: flex;
         column-gap: 20px;
 
-        .OBJ {
+        button {
             width: 65px;
             height: 65px;
-            background-color: var(--orange);
             border-radius: 10px;
+            border: 2px solid transparent;
+            overflow: hidden;
+            transition: all .15s linear;
+
+            &:hover {
+                img {
+                    filter: opacity(0.6);
+                } 
+            }
+
+            img {
+                width: 65px;
+                height: 65px;
+                object-fit: contain;
+            }
         }
     }
 }

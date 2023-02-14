@@ -1,17 +1,48 @@
 import styles from './index.module.scss'
+import { useState } from 'react'
 
-export default function ItemPreview() {
+interface ItemPreviewProps {
+    imageObj: image[]
+}
+
+interface image {
+    src: string
+}
+
+export default function ItemPreview({ imageObj } : ItemPreviewProps) {
+    const [currentImage, setCurrentImage] = useState<string>(imageObj[0].src);
+
     return (
         <div className={styles.main}>
             <div className={styles.mainImage}>
-                {/* <img src='' alt='item-image'/> */}
+                <img src={currentImage} alt='item-image'/>
                 <div className={styles.OBJETO}></div>
             </div>
             <div className={styles.otherImages}>
-                <div className={styles.OBJ}></div>
-                <div className={styles.OBJ}></div>
-                <div className={styles.OBJ}></div>
-                <div className={styles.OBJ}></div>
+                { imageObj.map(img => {
+                    return (
+                        <button 
+                            key={img.src}
+                            onClick={() => setCurrentImage(img.src)}
+                            style={img.src === currentImage 
+                                ? {
+                                    border: '2px solid var(--orange)'
+                                } 
+                                : {}
+                            }
+                        >
+                            <img 
+                                src={img.src} alt='sneaker'
+                                style={img.src === currentImage 
+                                    ? {
+                                        filter: ' opacity(0.4)',
+                                    } 
+                                    : {}
+                                }
+                            />
+                        </button>
+                    )
+                })}
             </div>
         </div>
     )

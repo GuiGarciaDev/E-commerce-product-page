@@ -4,12 +4,13 @@ import ItemPreview from './components/item-preview/ItemPreview'
 import Price from './components/price/Price'
 import styles from './styles/App.module.scss'
 import { BsCart3 } from 'react-icons/bs'
-import { BiPlusMedical, BiMinus } from 'react-icons/bi'
+import { BiPlusMedical } from 'react-icons/bi'
 import { FaMinus } from 'react-icons/fa'
+import { product } from '../db.json'
 
 function App() {
   const [quantity, setQuantity] = useState<number>(0);
-
+  
   return (
     <div className={styles.App}>
       <div className={styles.container}>
@@ -17,7 +18,7 @@ function App() {
 
         <div className={styles.content}>
           <div className={styles.left}>
-            <ItemPreview />
+            <ItemPreview imageObj={product.images}/>
           </div>
 
           <div className={styles.right}>
