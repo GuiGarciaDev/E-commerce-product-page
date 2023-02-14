@@ -1,0 +1,32 @@
+.main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+    row-gap: 30px;
+
+    .mainImage {
+        display: flex;
+        
+
+        .OBJETO {
+            width: 320px;
+            height: 320px;
+            background-color: var(--orange);
+            border-radius: 15px;
+        }
+    }
+
+    .otherImages {
+        display: flex;
+        column-gap: 20px;
+
+        .OBJ {
+            width: 65px;
+            height: 65px;
+            background-color: var(--orange);
+            border-radius: 10px;
+        }
+    }
+}

@@ -1,0 +1,36 @@
+.main {
+    display: flex;
+    width: fit-content;
+    flex-direction: column;
+    row-gap: 5px;
+    font-weight: 700;
+
+    .row {
+        display: flex;
+        column-gap: 20px;
+        color: var(--black);
+
+        span {
+            padding: 5px 10px;
+            border-radius: 5px;
+            color: var(--orange);
+            background-color: var(--pale-orange);
+        }
+    }
+
+    .discount {
+        width: fit-content;
+        position: relative;
+        color: var(--grayish-blue);
+
+        &::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            right: 0;
+            top: 50%;
+            height: 2px;
+            background-color: var(--grayish-blue);
+        }
+    }
+}
