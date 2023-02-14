@@ -16,11 +16,11 @@ export default function Header() {
                 
                 <img className={styles.logo} src={'/src/assets/logo.svg'} />
                 <div className={styles.headerButtons}>
-                    <button>Collections</button>
-                    <button>Men</button>
-                    <button>Woman</button>
-                    <button>About</button>
-                    <button>Contact</button>
+                    <button>Collections<span/></button>
+                    <button>Men<span/></button>
+                    <button>Woman<span/></button>
+                    <button>About<span/></button>
+                    <button>Contact<span/></button>
                 </div>  
             </div>
             

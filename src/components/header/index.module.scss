@@ -23,16 +23,37 @@
 
         .headerButtons {
             display: flex;
+            height: 100%;
             margin-left: 30px;
+            position: relative;
     
             button {
+                display: flex;
+                position: relative;
+                align-items: center;
                 padding: 0 20px;
                 font-size: 1rem;
                 height: 100%;
                 border: 0;
-                background-color: transparent;
                 color: var(--dark-grayish-blue);
                 cursor: pointer;
+                
+                span {
+                    position: absolute;
+                    border-radius: 10px;
+                    bottom: 0;
+                    background-color: var(--orange);
+                    height: 3px;
+                    width: calc(100% - 40px);
+                    transform: scaleX(0);
+                    transition: transform 250ms ease-in-out;
+                }
+
+                &:hover {
+                    span {
+                        transform: scaleX(1);
+                    } 
+                }
             }
         }
     }
