@@ -3,9 +3,12 @@ import { AiOutlineMenu } from 'react-icons/ai'
 import { BsCart3 } from 'react-icons/bs'
 import Cart from '../cart/Cart'
 import { useState } from 'react';
+import CartItem from '../cart-item/CartItem';
+import { useCartStore } from '../../stores/useCartStore';
 
 export default function Header() {
     const [cart, setCart] = useState<boolean>(false);
+    const cartSize = useCartStore((state) => state.products)
 
     return (
         <div className={styles.header}>
@@ -28,9 +31,10 @@ export default function Header() {
                 <div className={styles.cartHolder}>
                     <button onClick={() => setCart(prev => !prev)}>
                         <BsCart3 fontSize={20} />
+                        { cartSize.length > 0 && <span>{cartSize.length}</span>}
                     </button>
 
-                    <Cart active={cart}/>
+                    <Cart active={cart} />
                 </div>
 
                 <img className={styles.profilePhoto} src={'/src/assets/react.svg'} />

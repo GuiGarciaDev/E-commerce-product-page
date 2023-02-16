@@ -7,10 +7,12 @@ import { BsCart3 } from 'react-icons/bs'
 import { BiPlusMedical } from 'react-icons/bi'
 import { FaMinus } from 'react-icons/fa'
 import { product } from '../db.json'
+import { useCartStore } from './stores/useCartStore'
 
 function App() {
   const [quantity, setQuantity] = useState<number>(0);
-  
+  const addProduct = useCartStore((state) => state.addProduct)
+
   return (
     <div className={styles.App}>
       <div className={styles.container}>
@@ -43,7 +45,16 @@ function App() {
                 </button>
               </div>
 
-              <button className={styles.addButton}>
+              <button className={styles.addButton} 
+                onClick={() => {
+                  addProduct({
+                    name: product.name,
+                    id: product.id,
+                    img: product.main_image, 
+                    price: product.price,
+                    quantity: quantity
+                  })
+                }}>
                 <BsCart3 fontSize={18}/>
                 Add to cart
               </button>

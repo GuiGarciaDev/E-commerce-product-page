@@ -63,15 +63,27 @@
         align-items: center;
         column-gap: 30px;
 
-        .cartHolder {
-            position: relative;
-        }
-
         button {
+            position: relative;
             border: 0;
             padding: 20px;
             background-color: transparent;
             cursor: pointer;
+
+            span {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: absolute;
+                width: 15px;
+                height: 15px;
+                right: 25%;
+                bottom: 20%;
+                background-color: var(--orange);
+                color: var(--white);
+                border-radius: 50%;
+                font-size: 0.7rem;
+            }
         }
 
         .profilePhoto {
