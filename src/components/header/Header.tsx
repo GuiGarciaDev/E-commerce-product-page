@@ -3,8 +3,8 @@ import { AiOutlineMenu } from 'react-icons/ai'
 import { BsCart3 } from 'react-icons/bs'
 import Cart from '../cart/Cart'
 import { useState } from 'react';
-import CartItem from '../cart-item/CartItem';
 import { useCartStore } from '../../stores/useCartStore';
+import { AnimatePresence, motion } from 'framer-motion';
 
 export default function Header() {
     const [cart, setCart] = useState<boolean>(false);
@@ -31,7 +31,17 @@ export default function Header() {
                 <div className={styles.cartHolder}>
                     <button onClick={() => setCart(prev => !prev)}>
                         <BsCart3 fontSize={20} />
-                        { cartSize.length > 0 && <span>{cartSize.length}</span>}
+                        <AnimatePresence>
+                            { cartSize.length > 0 && (
+                                <motion.span
+                                    initial={{opacity: 0}}
+                                    animate={{opacity: 1}}
+                                    exit={{opacity: 0}}
+                                >
+                                    {cartSize.length}
+                                </motion.span>
+                            )}
+                        </AnimatePresence>
                     </button>
 
                     <Cart active={cart} />

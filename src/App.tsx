@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Header from './components/header/Header'
 import ItemPreview from './components/item-preview/ItemPreview'
 import Price from './components/price/Price'
@@ -8,6 +8,7 @@ import { BiPlusMedical } from 'react-icons/bi'
 import { FaMinus } from 'react-icons/fa'
 import { product } from '../db.json'
 import { useCartStore } from './stores/useCartStore'
+import { AnimatePresence, motion } from 'framer-motion'
 
 function App() {
   const [quantity, setQuantity] = useState<number>(0);
@@ -39,13 +40,27 @@ function App() {
                 <button onClick={() => setQuantity(prev => prev - 1)}>
                   <FaMinus fontSize={14}/>
                 </button>
-                <button className={styles.quantity}> {quantity} </button>
+                <AnimatePresence mode='wait' initial={false}>
+                  <motion.div 
+                    className={styles.quantity}
+                    key={quantity}
+                    initial={{x: -100}}
+                    animate={{x: 0}}
+                    exit={{x: 100}}
+                    transition={{duration: .15}} 
+                  > 
+                    {quantity} 
+                  </motion.div>
+                </AnimatePresence>
                 <button onClick={() => setQuantity(prev => prev + 1)}>
                   <BiPlusMedical fontSize={14}/>
                 </button>
               </div>
 
-              <button className={styles.addButton} 
+              <motion.button className={styles.addButton} 
+                initial={{scale: 0.5}}
+                animate={{scale: [0.5, 1.1, 1]}}
+                transition={{duration: 0.5, ease: 'easeInOut'}}
                 onClick={() => {
                   addProduct({
                     name: product.name,
@@ -57,7 +72,7 @@ function App() {
                 }}>
                 <BsCart3 fontSize={18}/>
                 Add to cart
-              </button>
+              </motion.button>
             </div>
           </div>
         </div>

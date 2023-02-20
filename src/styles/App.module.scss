@@ -47,6 +47,7 @@
                     .itemQuantity {
                         display: flex;
                         background-color: var(--light-grayish-blue);
+                        overflow: hidden;
 
                         button {
                             display: flex;
@@ -56,9 +57,13 @@
                             font-size: 1rem;
                             font-weight: 700;
                             color: var(--orange);
+                            background-color: var(--light-grayish-blue);
+                            z-index: 2;
                         }
     
                         .quantity {
+                            display: flex;
+                            align-items: center;
                             color: var(--black);
                             padding: 10px 25px;
                             cursor: auto;
