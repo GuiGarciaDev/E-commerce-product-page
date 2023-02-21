@@ -1,6 +1,10 @@
 import styles from './index.module.scss'
 import { useState } from 'react'
 import { motion } from 'framer-motion'
+import Modal from '../modal/Modal'
+import { createPortal } from 'react-dom'
+import useProductModal from '../../hooks/useProductModal'
+import Carousel from '../carousel/Carousel'
 
 interface ItemPreviewProps {
     imageObj: image[]
@@ -29,27 +33,28 @@ const mainVariants = {
 }
 
 export default function ItemPreview({ imageObj } : ItemPreviewProps) {
-    const [currentImage, setCurrentImage] = useState<string>(imageObj[0].src);
+    const [currrentIndex, setCurrrentIndex] = useState<number>(0);
+    const { productModal, openModal, closeModal } = useProductModal()
 
     return (
         <div className={styles.main}>
-            <motion.div 
+            <motion.button 
                 className={styles.mainImage}
                 initial={{x: -100, opacity: 0}}
                 animate={{x: 0, opacity: 1}}
                 transition={{duration: .5}}
+                onClick={() => openModal()}
             >
-                <img src={currentImage} alt='item-image'/>
-                <div className={styles.OBJETO}></div>
-            </motion.div>
+                <img src={imageObj[currrentIndex].src} alt='item-image'/>
+            </motion.button>
             <motion.div className={styles.otherImages} variants={mainVariants} initial={'closed'} animate={'open'}>
-                { imageObj.map(img => {
+                { imageObj.map((img, idx) => {
                     return (
                         <motion.button 
                             key={img.src}
-                            onClick={() => setCurrentImage(img.src)}
+                            onClick={() => setCurrrentIndex(idx)}
                             variants={itemVariants}
-                            style={img.src === currentImage 
+                            style={idx === currrentIndex
                                 ? {
                                     border: '2px solid var(--orange)'
                                 } 
@@ -58,7 +63,7 @@ export default function ItemPreview({ imageObj } : ItemPreviewProps) {
                         >
                             <img 
                                 src={img.src} alt='sneaker'
-                                style={img.src === currentImage 
+                                style={idx === currrentIndex
                                     ? {
                                         filter: ' opacity(0.4)',
                                     } 
@@ -69,6 +74,14 @@ export default function ItemPreview({ imageObj } : ItemPreviewProps) {
                     )
                 })}
             </motion.div>
+
+            { 
+                createPortal(
+                    <Modal isOpen={productModal} close={closeModal}>
+                        <Carousel images={imageObj} currentIndex={currrentIndex}/>
+                    </Modal>, document.body
+                )
+            }
         </div>
     )
 }

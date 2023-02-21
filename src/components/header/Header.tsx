@@ -11,7 +11,7 @@ export default function Header() {
     const cartSize = useCartStore((state) => state.products)
 
     return (
-        <div className={styles.header}>
+        <header className={styles.header}>
             <div className={styles.start}>
                 <button className={styles.toggleMenu}>
                     <AiOutlineMenu fontSize={25} />
@@ -49,6 +49,6 @@ export default function Header() {
 
                 <img className={styles.profilePhoto} src={'/src/assets/react.svg'} />
             </div>
-        </div>
+        </header>
     )
 }

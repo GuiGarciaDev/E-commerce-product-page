@@ -1,0 +1,32 @@
+.modal_backdrop {
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.852);
+    z-index: 50;
+}
+
+.modal_content {
+    display: flex;
+    position: relative;
+    min-width: 300px;
+    min-height: 300px;
+    max-width: 500px;
+    max-height: 500px;
+    background-color: white;
+}
+
+.close {
+    position: absolute;
+    right: 0;
+    top: -30px;
+    color: var(--white);
+    transition: background-color .1s linear;
+
+    &:hover {
+        color: var(--orange);
+    }
+}
