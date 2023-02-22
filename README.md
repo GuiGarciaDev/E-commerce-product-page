@@ -1,6 +1,6 @@
 # E-commerce-product-page
 
-This project is a challenge from frontendmentor.io. \n
+This project is a challenge from frontendmentor.io. </br>
 You can check this challenge here: https://www.frontendmentor.io/challenges/ecommerce-product-page-UPsZ9MJp6
 
 
