@@ -6,7 +6,7 @@ import styles from './styles/App.module.scss'
 import { BsCart3 } from 'react-icons/bs'
 import { BiPlusMedical } from 'react-icons/bi'
 import { FaMinus } from 'react-icons/fa'
-import { product } from '../db.json'
+import { db } from './db.js'
 import { useCartStore } from './stores/useCartStore'
 import { AnimatePresence, motion } from 'framer-motion'
 import Carousel from './components/carousel/Carousel'
@@ -25,11 +25,11 @@ function App() {
 
         <div className={styles.content}>
           <div className={styles.slider}>
-            <Carousel images={product.images} currentIndex={0} type={"streched"}/>
+            <Carousel images={db.product.images} currentIndex={0} type={"streched"}/>
           </div>
 
           <div className={styles.left}>
-            <ItemPreview imageObj={product.images}/>
+            <ItemPreview imageObj={db.product.images}/>
           </div>
 
           <div className={styles.right}>
@@ -71,10 +71,10 @@ function App() {
                 transition={{duration: 0.5, ease: 'easeInOut'}}
                 onClick={() => {
                   addProduct({
-                    name: product.name,
-                    id: product.id,
-                    img: product.main_image, 
-                    price: product.price,
+                    name: db.product.name,
+                    id: db.product.id,
+                    img: db.product.main_image, 
+                    price: db.product.price,
                     quantity: quantity
                   })
                 }}>

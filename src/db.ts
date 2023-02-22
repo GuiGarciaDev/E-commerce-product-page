@@ -1,4 +1,9 @@
-{
+import product1 from './assets/image-product-1.jpg'
+import product2 from './assets/image-product-2.jpg'
+import product3 from './assets/image-product-3.jpg'
+import product4 from './assets/image-product-4.jpg'
+
+export const db = {
     "product": {
         "name": "Fall Limited Edition Sneakers",
         "id": "123",
@@ -8,10 +13,10 @@
         "normal_price": "250.00",
         "main_image": "src/assets/image-product-1.jpg",
         "images": [
-            { "src": "src/assets/image-product-1.jpg" },
-            { "src": "src/assets/image-product-2.jpg" },
-            { "src": "src/assets/image-product-3.jpg" },
-            { "src": "src/assets/image-product-4.jpg" }
+            { "src": product1 },
+            { "src": product2 },
+            { "src": product3 },
+            { "src": product4 }
         ]
     }
     

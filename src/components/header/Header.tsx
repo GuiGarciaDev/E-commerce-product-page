@@ -5,6 +5,8 @@ import Cart from '../cart/Cart'
 import { useState } from 'react';
 import { useCartStore } from '../../stores/useCartStore';
 import { AnimatePresence, motion } from 'framer-motion';
+import logoUrl from '../../assets/logo.svg'
+import avatarUrl from '../../assets/image-avatar.png'
 
 interface HeaderProps {
     openSideBar: () => void
@@ -21,7 +23,7 @@ export default function Header({ openSideBar } : HeaderProps) {
                     <AiOutlineMenu fontSize={25} />
                 </button>
                 
-                <img className={styles.logo} src={'/src/assets/logo.svg'} />
+                <img className={styles.logo} src={logoUrl} />
                 <div className={styles.headerButtons}>
                     <button>Collections<span/></button>
                     <button>Men<span/></button>
@@ -51,7 +53,7 @@ export default function Header({ openSideBar } : HeaderProps) {
                     <Cart active={cart} />
                 </div>
 
-                <img className={styles.profilePhoto} src={'/src/assets/image-avatar.png'} />
+                <img className={styles.profilePhoto} src={avatarUrl} />
             </div>
         </header>
     )
