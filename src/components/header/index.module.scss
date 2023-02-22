@@ -56,6 +56,18 @@
                 }
             }
         }
+
+        @media (max-width: 850px) {
+            & {
+                .toggleMenu {
+                    display: flex;
+                }
+
+                .headerButtons {
+                    display: none;
+                }
+            }
+        }
     }
 
     .end {
@@ -90,6 +102,31 @@
             padding: 5px;
             border-radius: 50%;
             border: 1px solid black;
+        }
+    }
+
+    @media (max-width: 850px) {
+        & {
+            padding: 0 30px;
+        }
+    }
+
+    @media (max-width: 450px) {
+        & {
+            .end {
+                column-gap: 0;
+            }
+        }
+    }
+
+    @media (max-width: 400px) {
+        & {
+            padding: 0 10px;
+            .start {
+                .toggleMenu {
+                    margin-right: 10px;
+                }
+            }
         }
     }
 }

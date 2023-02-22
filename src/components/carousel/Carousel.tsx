@@ -4,6 +4,7 @@ import { AiOutlineRight, AiOutlineLeft } from "react-icons/ai";
 import { useState } from "react";
 
 interface CarouselProps {
+  type: "modal" | "streched",
   images: image[];
   currentIndex?: number;
 }
@@ -17,7 +18,7 @@ interface currentImage {
   index: number;
 }
 
-export default function Carousel({ images, currentIndex }: CarouselProps) {
+export default function Carousel({ images, currentIndex, type }: CarouselProps) {
   const [index, setIndex] = useState<number | undefined>(currentIndex);
 
   // Implement current image
@@ -39,7 +40,7 @@ export default function Carousel({ images, currentIndex }: CarouselProps) {
 
   return (
     <AnimatePresence mode="wait">
-      <div className={styles.carousel}>
+      <div className={type === "modal" ? styles.carousel_modal : styles.carousel_streched}>
         <motion.button
           className={styles.prev}
           onClick={() => prevIndex()}

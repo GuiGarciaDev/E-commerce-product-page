@@ -78,7 +78,7 @@ export default function ItemPreview({ imageObj } : ItemPreviewProps) {
             { 
                 createPortal(
                     <Modal isOpen={productModal} close={closeModal}>
-                        <Carousel images={imageObj} currentIndex={currrentIndex}/>
+                        <Carousel images={imageObj} currentIndex={currrentIndex} type={"modal"}/>
                     </Modal>, document.body
                 )
             }

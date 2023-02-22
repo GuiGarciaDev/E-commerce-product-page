@@ -33,4 +33,13 @@
             background-color: var(--grayish-blue);
         }
     }
+
+    @media (max-width: 400px) {
+        & {
+            width: 100%;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
 }

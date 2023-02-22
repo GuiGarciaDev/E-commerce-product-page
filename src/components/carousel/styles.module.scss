@@ -1,4 +1,4 @@
-.carousel {
+.carousel_modal {
     display: flex;
     width: 100%;
     height: 100%;
@@ -26,5 +26,47 @@
     img {
         object-fit: contain;
         max-width: 100%;
+    }
+}
+
+.carousel_streched {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+    .next, .prev {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        background-color: var(--white);
+        position: absolute;
+        top: calc(50% - 10px); 
+        border-radius: 50%;
+        transition: all .1s linear;
+
+        &:hover {
+            color: var(--orange);
+        }
+    }
+
+    .prev { left: 10px; }
+    .next { right: 10px; }
+
+    img {
+        object-fit: contain;
+        width: 400px;
+        height: 400px;
+    }
+
+    @media (max-width: 400px) {
+        & {
+            img {
+                object-fit: cover;
+                width: 100%;
+                height: 400px;
+            }
+        }
     }
 }

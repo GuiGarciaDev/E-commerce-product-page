@@ -7,6 +7,7 @@
     background-color: var(--white);
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     border-radius: 5px;
+    z-index: 50;
 
     .header {
         display: flex;
@@ -24,11 +25,24 @@
         }
     }
 
-        .content {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            height: calc(100% - 60px);
+    .content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: calc(100% - 60px);
+    }
+
+    @media (max-width: 480px) {
+        & {
+            right: calc(50% - 175px);
         }
+    }
+
+    @media (max-width: 370px) {
+        & {
+            width: 320px;
+            right: calc(50% - 160px);
+        }
+    }
 }

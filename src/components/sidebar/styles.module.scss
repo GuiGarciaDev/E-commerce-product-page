@@ -1,0 +1,39 @@
+.sidebar {
+    position: absolute;
+    overflow: hidden;
+    height: 100%;
+    background-color: var(--white);
+    z-index: 100;
+
+    .sidebar_contents {
+        display: flex;
+        position: absolute;
+        align-items: flex-start;
+        height: 100%;
+        padding: 20px 30px;
+        flex-direction: column;
+        row-gap: 50px;
+
+        button, li {
+            transition: all .15s linear;
+    
+            &:hover {
+                color: var(--orange);
+            }
+        }
+    
+        ul {
+            display: flex;
+            flex-direction: column;
+            row-gap: 30px;
+            margin-left: 20px;
+    
+            li {
+                all: unset;
+                font-size: 1.5rem;
+                font-weight: 700;
+                cursor: pointer;
+            }
+        }
+    }
+}

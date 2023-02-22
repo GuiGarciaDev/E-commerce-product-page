@@ -5,15 +5,20 @@ import Cart from '../cart/Cart'
 import { useState } from 'react';
 import { useCartStore } from '../../stores/useCartStore';
 import { AnimatePresence, motion } from 'framer-motion';
+import { useSideBar } from '../../hooks/useSideBar';
 
-export default function Header() {
-    const [cart, setCart] = useState<boolean>(false);
+interface HeaderProps {
+    openSideBar: () => void
+}
+
+export default function Header({ openSideBar } : HeaderProps) {
+    const [cart, setCart] = useState<boolean>(false)
     const cartSize = useCartStore((state) => state.products)
-
+    
     return (
         <header className={styles.header}>
             <div className={styles.start}>
-                <button className={styles.toggleMenu}>
+                <button className={styles.toggleMenu} onClick={openSideBar}>
                     <AiOutlineMenu fontSize={25} />
                 </button>
                 

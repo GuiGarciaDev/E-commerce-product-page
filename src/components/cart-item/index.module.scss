@@ -39,4 +39,11 @@
             color: var(--grayish-blue);
         }
     }
+
+    @media (max-width: 370px) {
+        & {
+            font-size: 0.9rem;
+
+        }
+    }
 }

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import Header from './components/header/Header'
 import ItemPreview from './components/item-preview/ItemPreview'
 import Price from './components/price/Price'
@@ -9,17 +9,25 @@ import { FaMinus } from 'react-icons/fa'
 import { product } from '../db.json'
 import { useCartStore } from './stores/useCartStore'
 import { AnimatePresence, motion } from 'framer-motion'
+import Carousel from './components/carousel/Carousel'
+import SideBar from './components/sidebar/SideBar'
+import { useSideBar } from './hooks/useSideBar'
 
 function App() {
   const [quantity, setQuantity] = useState<number>(0);
-  const addProduct = useCartStore((state) => state.addProduct)
+  const { sidebar, open, close } = useSideBar()
+  const addProduct = useCartStore((state) => state.addProduct) 
 
   return (
     <div className={styles.App}>
       <div className={styles.container}>
-        <Header />
+        <Header openSideBar={open}/>
 
         <div className={styles.content}>
+          <div className={styles.slider}>
+            <Carousel images={product.images} currentIndex={0} type={"streched"}/>
+          </div>
+
           <div className={styles.left}>
             <ItemPreview imageObj={product.images}/>
           </div>
@@ -77,6 +85,7 @@ function App() {
           </div>
         </div>
       </div>
+      <SideBar isOpen={sidebar} close={close}/>
     </div>
   )
 }
