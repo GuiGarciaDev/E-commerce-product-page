@@ -5,7 +5,6 @@ import Cart from '../cart/Cart'
 import { useState } from 'react';
 import { useCartStore } from '../../stores/useCartStore';
 import { AnimatePresence, motion } from 'framer-motion';
-import { useSideBar } from '../../hooks/useSideBar';
 
 interface HeaderProps {
     openSideBar: () => void
@@ -52,7 +51,7 @@ export default function Header({ openSideBar } : HeaderProps) {
                     <Cart active={cart} />
                 </div>
 
-                <img className={styles.profilePhoto} src={'/src/assets/react.svg'} />
+                <img className={styles.profilePhoto} src={'/src/assets/image-avatar.png'} />
             </div>
         </header>
     )
